@@ -1,17 +1,49 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-/*
-header *{
+nav{
     display: flex;
-}*//* https://pngimg.com/uploads/amazon/amazon_PNG11.png*/
-
-.active{
-    color: #000;
+    justify-content: space-between;
+    align-items: center;
 }
 
-Link, NavLink{
-    text-decoration: none;
-    background-color: aqua;
+.main-navbar{
+    background: rgb(19,25,33);
+    height: 60px;
+}
+
+nav *{
+    color: #fff;
+}
+
+.menusplit{
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    height: 100%;
+}
+
+.menusplit a{
+    display: inline-block;
+    padding: 0px 10px;
+    height: 100%;
+}
+
+.search *{
+    color: rgb(73, 73, 73);
+    border: none;
+}
+
+.amznlogo{
+    height: 38px;
+    padding: 0px 6px;
+}
+
+/*Secondary menu*/
+
+.secondary-navbar{
+    background: rgb(35,47,62);
+    width: 98%; padding: 0% 1%;
+}
+
+.secondary-navbar ul{
+    display: flex;
+    height: 40px;
 }

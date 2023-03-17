@@ -1,12 +1,13 @@
 import { Redirect, Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
-import Products from "./components/Products";
+import Home from "./components/home/Home";
+import Products from "./components/Products/Products";
 import Header from "./components/header/Header";
-import ProductItem from "./components/ProductItem";
+import ProductItem from "./components/Products/ProductItem";
 import Deliver from "./components/Deliver";
 import Account from "./components/Account";
 import Cart from "./components/Cart";
 import Region from "./components/Region";
+import Notfound from "./components/Notfound";
 
 
 function App() {
@@ -45,6 +46,9 @@ function App() {
 				<Route path={'/cart'}>
 					<Header/>
 					<Cart/>
+				</Route>
+				<Route path={'/*'}>
+					<Notfound/>
 				</Route>
 			</Switch>
 		</div>
