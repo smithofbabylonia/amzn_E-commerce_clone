@@ -14,7 +14,7 @@ function Home(){
 				<Category name="Gaming accessories"/>
 				<Category name="Beauty picks"/>
 				<Category name="Health & Personal Care"/>
-				<div className="rect"><h1>advert</h1></div>
+				{false ? <div className="rect"><h1>advert</h1></div> : <Category name="Electronics"/>}
 				<Category name="Electronics"/>
 				<Category name="Get fit at home"/>
 				<Category name="Shop by Category"/>

@@ -1,5 +1,6 @@
 import ProductListing from "./ProductListing";
 import './Products.css';
+import Sidebar from "./Sidebar";
 
 function Products() {
 	return(
@@ -10,6 +11,7 @@ function Products() {
 			</div>
 			<div className="sidebar">
 				<h3>More-sustainable Products</h3>
+				<Sidebar/>
 			</div>
 			<div className="items-list">
 				<div className="results">RESULTS</div>

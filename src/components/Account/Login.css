@@ -34,6 +34,15 @@
     width: 100%;
     margin-bottom: 10px;
 }
+.login-container > h2{
+    font-weight: 400;
+    font-size: 28px;
+}
+
+.login-container > h4{
+    font-weight: 700;
+    font-size: 13px;
+}
 
 .login-container > p{
     font-size: 12px;
@@ -64,5 +73,6 @@
     position: relative;
     z-index: 2;
     display: inline-block;
-    top: -10px;
+    padding: 4px;
+    top: -16px;
 }

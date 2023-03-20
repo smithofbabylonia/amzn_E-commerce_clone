@@ -17,37 +17,43 @@ function App() {
 	const logged = false;
 	return (
 		<>
-			<Header/>
 			<Switch>
 			<Route path={'/'} exact>
 					<Redirect to={'/home'}/>
 				</Route>
 				<Route path={'/home'}>
+					<Header/>
 					<Home/>
 				</Route>
 				<Route path={'/products'} exact>
+					<Header/>
 					<Products/>
 				</Route>
 				<Route path={'/products/:id'}>
+					<Header/>
 					<ProductItem/>
 				</Route>
 				<Route path={'/delivery'}>
+					<Header/>
 					<Deliver/>
 				</Route>
 				<Route path={'/region'}>
+					<Header/>
 					<Region/>
 				</Route>
 				<Route path={'/account'}>
-					{logged ? <Account/> : <Login/>}
+					{logged ? <><Header/><Account/></> : <Login/>}
 				</Route>
 				<Route path={'/orders'}>
-					{logged ? <Orders/> :
+					{logged ? <><Header/><Orders/></> :
 					<Redirect to={'/account'}/> }
 				</Route>
 				<Route path={'/cart'}>
+					<Header/>
 					<Cart/>
 				</Route>
 				<Route path={'/*'}>
+					<Header/>
 					<Notfound/>
 				</Route>
 			</Switch>

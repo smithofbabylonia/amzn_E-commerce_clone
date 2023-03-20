@@ -18,9 +18,9 @@
 }
 
 .sidebar{
-	width: 255px;
-	margin-left: 0.2%;
-	background: red;
+	width: calc(.16667 * (100vw - 28px));
+    min-width: 166px;
+    max-width: 299.33px;
 }
 
 .results{
@@ -35,7 +35,9 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	width: calc(99% - 255px);
+	width: calc(.83333 * (100vw - 28px));
+    min-width: 830px;
+    max-width: 1496.67px;
 }
 
 .listing{
