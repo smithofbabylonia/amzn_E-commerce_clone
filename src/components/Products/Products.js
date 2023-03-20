@@ -1,17 +1,25 @@
-import { Link } from "react-router-dom";
+import ProductListing from "./ProductListing";
+import './Products.css';
 
 function Products() {
 	return(
-		<div>
-			<h1>Products page</h1>
-			<ul>
-				<li><Link to={'/products/1'}>product 1</Link></li>
-				<li><Link to={'/products/2'}>product 2</Link></li>
-				<li><Link to={'/products/3'}>product 3</Link></li>
-				<li><Link to={'/products/4'}>product 4</Link></li>
-				<li><Link to={'/products/5'}>product 5</Link></li>
-				<li><Link to={'/products/6'}>product 6</Link></li>
-			</ul>
+		<div className="products">
+			<div className="filter">
+				<label>1-24 of over 60,000 results</label>
+				<label>Featured</label>
+			</div>
+			<div className="sidebar">
+				<h3>More-sustainable Products</h3>
+			</div>
+			<div className="items-list">
+				<div className="results">RESULTS</div>
+				<ProductListing id='1'/>
+				<ProductListing id='2'/>
+				<ProductListing id='3'/>
+				<ProductListing id='4'/>
+				<ProductListing id='5'/>
+				<ProductListing id='6'/>
+			</div>
 		</div>
 	)
 }

@@ -1,0 +1,92 @@
+.products{
+	width: 100%;
+	background: #fff;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.filter{
+	background: #fff;
+	display: flex;
+	justify-content: space-between;
+	width: calc(100% - 12px);
+	padding: 5px;
+	margin-bottom: 10px;
+	border-bottom: solid 1px #8e8e8e;
+	box-shadow: 0px 5px 8px #cacaca;
+}
+
+.sidebar{
+	width: 255px;
+	margin-left: 0.2%;
+	background: red;
+}
+
+.results{
+	width: 97%;
+	padding: 1%;
+	font-size: 20px;
+	line-height: 28px;
+	
+}
+
+.items-list{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	width: calc(99% - 255px);
+}
+
+.listing{
+	background: white;
+	min-width: 237px;
+	width: 19%;
+	height: 570px;
+	border: solid #e7e7e7 1px;
+	margin-bottom: 10px;
+}
+
+.below{
+	margin-bottom: 10px;
+}
+
+.prod-picture{
+	width: calc(100% - 10px);
+	justify-content: center;
+	display: flex;
+	color: rgb(0, 113, 113);
+	background: #f6f6f6;
+	padding: 5px;
+}
+
+.listing img{
+	width: 96%;
+}
+.listing p{
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.listing p:hover{
+	color: rgb(196,85,0);
+}
+
+.price{
+	display: flex;
+}
+
+.delivery span{
+	font-size: 14px;
+}
+
+.price h4{
+	font-size: 28px;
+	font-weight: 400;
+}
+
+sup{
+	font-size: 13px;
+	font-weight: 400;
+}
