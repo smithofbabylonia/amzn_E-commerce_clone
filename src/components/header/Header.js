@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import NavButton from './NavButton.js';
 import './Header.css';
 
 function Header(){
@@ -8,9 +9,9 @@ function Header(){
 			<nav className="main-navbar">
 				<div className="menusplit">
 					<NavLink to={'/home'}>
-						<img className="amznlogo" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon"/>
+						<img className="navbutton amznlogo" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon"/>
 					</NavLink>
-					<NavLink to={'/delivery'}>Deliver</NavLink>
+					<NavButton link='/delivery' subt='Deliver to' name='South Africa'/>
 				</div>
 				<div className="menusplit search">
 					<select name="categoriesdd" title="categoriesdd" className="categoriesdd">
@@ -22,22 +23,22 @@ function Header(){
 					
 				</div>
 				<div className="menusplit">
-					<NavLink to={'/region'}>Region</NavLink>
+					<NavButton link='/region' name='EN'/>
 					<NavLink to={'/account'}>Account</NavLink>
 					<NavLink to={'/orders'}>Orders</NavLink>
 					<NavLink to={'/cart'}>Cart</NavLink>
 				</div>
 			</nav>
-			<nav className="secondary-navbar">
-				<ul>
-					<li><NavLink to={'/home'}>All</NavLink></li>
-					<li><NavLink to={'/home'}>Today's deals</NavLink></li>
-					<li><NavLink to={'/home'}>Customer service</NavLink></li>
-					<li><NavLink to={'/home'}>Registry</NavLink></li>
-					<li><NavLink to={'/home'}>Gift cards</NavLink></li>
-					<li><NavLink to={'/products'}>Sell</NavLink></li>
+			<nav className="secondary-navbar menusplit">
+				<ul className="menusplit">
+					<li className="navbutton"><NavLink to={'/home'}>All</NavLink></li>
+					<li className="navbutton"><NavLink to={'/home'}>Today's deals</NavLink></li>
+					<li className="navbutton"><NavLink to={'/home'}>Customer service</NavLink></li>
+					<li className="navbutton"><NavLink to={'/home'}>Registry</NavLink></li>
+					<li className="navbutton"><NavLink to={'/home'}>Gift cards</NavLink></li>
+					<li className="navbutton"><NavLink to={'/products'}>Sell</NavLink></li>
 				</ul>
-				<NavLink to={'/'}>Shop great deals now</NavLink>
+				<NavLink className="navbutton" to={'/'}>Shop great deals now</NavLink>
 			</nav>
 		</header>
 	);

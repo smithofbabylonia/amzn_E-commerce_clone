@@ -11,10 +11,16 @@ import Region from "./components/Region";
 import Notfound from "./components/Notfound";
 import Orders from "./components/Orders";
 import Login from "./components/Account/Login";
+import { useEffect, useState } from "react";
 
 
 function App() {
-	const logged = false;
+	const [logged,setLogged] = useState(false);
+	useEffect(()=>{
+		let lclLog = localStorage.getItem('loggedState');
+		console.log("Session",lclLog);
+		if(lclLog) setLogged(true);
+	},[]);
 	return (
 		<>
 			<Switch>
@@ -42,7 +48,7 @@ function App() {
 					<Region/>
 				</Route>
 				<Route path={'/account'}>
-					{logged ? <><Header/><Account/></> : <Login/>}
+					{logged ? <><Header/><Account/></> : <Login logState={logged} setLogState={setLogged}/>}
 				</Route>
 				<Route path={'/orders'}>
 					{logged ? <><Header/><Orders/></> :

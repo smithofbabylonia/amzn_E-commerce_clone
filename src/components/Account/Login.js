@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import './Login.css';
 
-function Login(){
+function Login(props){
 	const [emlVar,setEmailvar] = useState("");//repurposed email address
 	const [passVar, changePass] = useState("");//repurposed password
 	const [labelVar,editLabel] = useState("Email or mobile phone number");
@@ -13,21 +13,21 @@ function Login(){
 	function nextpage(e){
 		e.preventDefault();
 		if(emlVar.length>0 && passVar.length===0){//going to check if email exists on system
-			console.log("It is werking");
 			editLabel("Password");
 			showPass({'display':'block'});
 			showEml({'display':'none'});
 			changeBtn("Login");
 		}
 		if(passVar.length>0){
-			console.log("Still working");
 			editLabel("Email or mobile phone number");
 			showPass({'display':'none'});
 			showEml({'display':'block'});
 			changeBtn("Continue");
 			setEmailvar("");
 			changePass("");
-			window.location = "/home";
+			props.setLogState(true);
+			localStorage.setItem('loggedState',1);
+			//window.location = "/home";
 		}
 	}
 
