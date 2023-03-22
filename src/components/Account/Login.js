@@ -19,7 +19,7 @@ function Login(props){
 
 	function nextpage(e){
 		e.preventDefault();
-		if(emlVar.length>0){//} && passVar.length===0){//going to check if email exists on system
+		if(emlVar.length>0){//going to check if email exists on system then flip labels to take password
 			editLabel("Password");
 			showPass({'display':'block'});
 			showEml({'display':'none'});

@@ -1,17 +1,18 @@
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function SearchBar(props){
 
     const selectRef = useRef(null);
     const searchRef =useRef(null);
+    const [selectedVal, switchVal] = useState("All");
 
-    function resize(e){
+    useEffect(()=>{
         let x = document.getElementById("categoriesdd");
         let y = x.options[x.selectedIndex];
         let z = y.value.length;
-        console.log(z);
+        //console.log(selectedRef);
         let calcs = 35+7*z;
         x = document.getElementsByClassName('search');
         y = x[0].offsetWidth;
@@ -19,11 +20,11 @@ function SearchBar(props){
         selectRef.current.style.width = calcs+'px';
         searchRef.current.style.width = z+'px';
 
-    }
+    },[selectedVal]);
 
     return(
         <>
-        <select className="rndlt" title="search in" ref={selectRef} id="categoriesdd" onChange={resize}>
+        <select className="rndlt" title="search in" ref={selectRef} id="categoriesdd" value={selectedVal} onChange={(e)=>{switchVal(e.target.value)}}>
 						<option value='All'>All</option>
 						<option value='Arts and Crafts'>Arts and Crafts</option>
                         <option value='Deals'>Deals</option>
