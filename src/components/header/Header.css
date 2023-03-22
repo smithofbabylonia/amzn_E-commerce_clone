@@ -1,3 +1,7 @@
+header path{
+    fill: #fff;
+}
+
 nav{
     display: flex;
     justify-content: space-between;
@@ -21,13 +25,50 @@ nav *{
 }
 
 .menusplit a{
-    display: inline-block;
     padding: 6px 10px;
+}
+
+.search{
+    height: 70%;
+    border-radius: 6px;
+    width: 50vw;
+}
+.search:focus-within{
+    outline: solid 3px #e67a00;
+    
 }
 
 .search *{
     color: rgb(73, 73, 73);
     border: none;
+    height: 100%;
+}
+.search > *{
+    border-left: solid 1px #cdcdcd;
+    padding-left: 5px;
+    font-size: 15px;
+}
+
+.search button{
+    width: 48px;
+}
+
+.rndlt{
+    border-radius: 6px 0px 0px 6px;
+}
+.rndrt{
+    border-radius: 0px 6px 6px 0px;
+}
+
+.rndrt svg{
+    height: 20px;
+}
+.rndrt path{
+    fill: #4a4a4a;
+}
+
+.icon svg{
+    height: 18px;
 }
 
 .amznlogo{
@@ -40,18 +81,30 @@ nav *{
 .secondary-navbar{
     background: rgb(35,47,62);
     height: 40px;
-    width: 98%; padding: 0% 1%;
 }
 
+.secondary-navbar a{
+    padding: 0px 10px !important;
+}
 
-
-/*##################################################3
+/*##################################################
         NavButtons
 */
 
 .navbutton{
     padding: 6px;
     border-radius: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.navbutton .icon{
+    padding: 10px 0px;
+    height: 15px;
+}
+
+.navbutton svg{
+    padding: 0px 10px;
 }
 
 .navbutton:hover{

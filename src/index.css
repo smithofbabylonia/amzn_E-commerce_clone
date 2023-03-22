@@ -5,6 +5,7 @@
 	font-family: Arial, sans-serif;
 	text-decoration: none;
 	color: #000;
+	list-style: none;
 }
 
 body{
@@ -19,4 +20,8 @@ body{
 	color: #C7511F;
 	text-decoration: underline;
 	cursor: pointer;
+}
+
+input:focus, select:focus{
+	outline: none;
 }

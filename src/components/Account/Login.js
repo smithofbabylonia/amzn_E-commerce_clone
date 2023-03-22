@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './Login.css';
 
@@ -9,16 +9,23 @@ function Login(props){
 	const [butnLabel,changeBtn] = useState("Continue");
 	const [passDis,showPass] = useState({'display':'none'});
 	const [emlDis, showEml] = useState({'display':'block'});
+	const [isValid,validate] =useState(false);
+
+	useEffect(()=>{
+		if (emlVar.includes('@') && emlVar.includes('@') && passVar.length>6) {
+			validate(true);
+		}
+	},[emlVar,passVar]);
 
 	function nextpage(e){
 		e.preventDefault();
-		if(emlVar.length>0 && passVar.length===0){//going to check if email exists on system
+		if(emlVar.length>0){//} && passVar.length===0){//going to check if email exists on system
 			editLabel("Password");
 			showPass({'display':'block'});
 			showEml({'display':'none'});
 			changeBtn("Login");
 		}
-		if(passVar.length>0){
+		if(isValid && butnLabel==="Login"){ // show both email and password before trying to login
 			editLabel("Email or mobile phone number");
 			showPass({'display':'none'});
 			showEml({'display':'block'});

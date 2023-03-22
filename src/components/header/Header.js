@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
 import NavButton from './NavButton.js';
+import SearchBar from './SearchBar.js';
 import './Header.css';
+import { faCartShopping, faFlagUsa, faLocationDot, faBars } from "@fortawesome/free-solid-svg-icons";
 
-function Header(){
+function Header(props){
 
 	return(
 		<header>
@@ -11,34 +13,28 @@ function Header(){
 					<NavLink to={'/home'}>
 						<img className="navbutton amznlogo" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon"/>
 					</NavLink>
-					<NavButton link='/delivery' subt='Deliver to' name='South Africa'/>
+					<NavButton link='/delivery' ico={faLocationDot} subt='Deliver to' name='South Africa'/>
 				</div>
 				<div className="menusplit search">
-					<select name="categoriesdd" title="categoriesdd" className="categoriesdd">
-						<option name='All'>All</option>
-						<option name='Arts and Crafts'>Arts and Crafts</option>
-					</select>
-					<input type="search" title="" placeholder="Search Amazon"/>
-					<input type="submit"/>
-					
+					<SearchBar/>
 				</div>
 				<div className="menusplit">
-					<NavButton link='/region' name='EN'/>
-					<NavLink to={'/account'}>Account</NavLink>
-					<NavLink to={'/orders'}>Orders</NavLink>
-					<NavLink to={'/cart'}>Cart</NavLink>
+					<NavButton link='/region' ico={faFlagUsa} name='EN'/>
+					<NavButton link={'/account'} subt='Hello, sign in' name='Account & Lists'/>
+					<NavButton link={'/orders'} subt='Returns' name='& Orders'/>
+					<NavButton link={'/cart'} ico={faCartShopping} subt={props.cartSize} name='Cart'/>
 				</div>
 			</nav>
 			<nav className="secondary-navbar menusplit">
-				<ul className="menusplit">
-					<li className="navbutton"><NavLink to={'/home'}>All</NavLink></li>
-					<li className="navbutton"><NavLink to={'/home'}>Today's deals</NavLink></li>
-					<li className="navbutton"><NavLink to={'/home'}>Customer service</NavLink></li>
-					<li className="navbutton"><NavLink to={'/home'}>Registry</NavLink></li>
-					<li className="navbutton"><NavLink to={'/home'}>Gift cards</NavLink></li>
-					<li className="navbutton"><NavLink to={'/products'}>Sell</NavLink></li>
-				</ul>
-				<NavLink className="navbutton" to={'/'}>Shop great deals now</NavLink>
+				<div className="menusplit">
+					<NavButton link='/home' middle='All' ico={faBars}/>
+					<NavButton link='/home' middle="Today's deals"/>
+					<NavButton link='/home' middle='Customer service'/>
+					<NavButton link='/home' middle='Registry'/>
+					<NavButton link='/home' middle='Gift cards'/>
+					<NavButton link='/home' middle='Sell'/>
+				</div>
+				<NavButton link='/home' middle='Shop great deals now'/>
 			</nav>
 		</header>
 	);

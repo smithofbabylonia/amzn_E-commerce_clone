@@ -1,4 +1,4 @@
-.home{
+#home{
     width: 100%; min-height: 100vh;
     background-image: url(https://m.media-amazon.com/images/I/71tIrZqybrL._SX3000_.jpg);
     background-repeat: no-repeat;
@@ -34,12 +34,12 @@
 }
 
 .categories{
-    width: 100%;
+    width: 98%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 15px;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3),white);
+    background-image: linear-gradient(rgba(255, 255, 255, 0),white);
 }
 
 /*Catergories*/
