@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './Login.css';
+import AuthContext from "../../context/authContext";
 
 function Login(props){
 	const [emlVar,setEmailvar] = useState("");//repurposed email address
@@ -10,6 +11,7 @@ function Login(props){
 	const [passDis,showPass] = useState({'display':'none'});
 	const [emlDis, showEml] = useState({'display':'block'});
 	const [isValid,validate] =useState(false);
+	const ctx =useContext(AuthContext);
 
 	useEffect(()=>{
 		if (emlVar.includes('@') && emlVar.includes('@') && passVar.length>6) {
@@ -30,11 +32,9 @@ function Login(props){
 			showPass({'display':'none'});
 			showEml({'display':'block'});
 			changeBtn("Continue");
+			ctx.onLogIn(emlVar,passVar); // The new login place
 			setEmailvar("");
 			changePass("");
-			props.setLogState(true);
-			localStorage.setItem('loggedState',1);
-			//window.location = "/home";
 		}
 	}
 

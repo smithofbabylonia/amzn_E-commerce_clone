@@ -11,25 +11,16 @@ import Region from "./components/Region";
 import Notfound from "./components/Notfound";
 import Orders from "./components/Orders";
 import Login from "./components/Account/Login";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useState } from "react";
+import AuthContext from "./context/authContext";
 
 
 function App() {
-	const [logged,setLogged] = useState(false);
+	const ctx = useContext(AuthContext);
 	const [cartContainer,cartLoader] = useState(['9','12','32','25','35']);
 	
-	useEffect(()=>{
-		let lclLog = localStorage.getItem('loggedState'); //if(null) is false
-		console.log("Session",lclLog);
-		if(lclLog) setLogged(true);
-	},[]);
+	// in comemoration of a couple of functions and variables that used to live here.
 
-
-	function logOut(){
-		console.log("Now logging out");
-		localStorage.removeItem('loggedState');
-		setLogged(false);
-	}
 	function addToCart(item){
 		var x = [...cartContainer,item];
 		cartLoader(x);
@@ -61,10 +52,10 @@ function App() {
 					<Region/>
 				</Route>
 				<Route path={'/account'}>
-					{logged ? <><Header cartSize={cartContainer.length}/><Account logout={logOut}/></> : <Login logState={logged} setLogState={setLogged}/>}
+					{ctx.isLoggedIn ? <><Header cartSize={cartContainer.length}/><Account /></> : <Login />}
 				</Route>
 				<Route path={'/orders'}>
-					{logged ? <><Header cartSize={cartContainer.length}/><Orders/></> :
+					{ctx.isLoggedIn ? <><Header cartSize={cartContainer.length}/><Orders/></> :
 					<Redirect to={'/account'}/> }
 				</Route>
 				<Route path={'/cart'}>
