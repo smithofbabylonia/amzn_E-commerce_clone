@@ -11,20 +11,15 @@ import Region from "./components/Region";
 import Notfound from "./components/Notfound";
 import Orders from "./components/Orders";
 import Login from "./components/Account/Login";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import AuthContext from "./context/authContext";
 
 
 function App() {
 	const ctx = useContext(AuthContext);
-	const [cartContainer,cartLoader] = useState(['9','12','32','25','35']);
 	
 	// in comemoration of a couple of functions and variables that used to live here.
 
-	function addToCart(item){
-		var x = [...cartContainer,item];
-		cartLoader(x);
-	}
 	return (
 		<>
 			<Switch>
@@ -32,38 +27,38 @@ function App() {
 					<Redirect to={'/home'}/>
 				</Route>
 				<Route path={'/home'}>
-					<Header cartSize={cartContainer.length}/>
+					<Header/>
 					<Home/>
 				</Route>
 				<Route path={'/products'} exact>
-					<Header cartSize={cartContainer.length}/>
+					<Header/>
 					<Products/>
 				</Route>
 				<Route path={'/products/:id'}>
-					<Header cartSize={cartContainer.length}/>
+					<Header/>
 					<ProductItem/>
 				</Route>
 				<Route path={'/delivery'}>
-					<Header cartSize={cartContainer.length}/>
+					<Header/>
 					<Deliver/>
 				</Route>
 				<Route path={'/region'}>
-					<Header cartSize={cartContainer.length}/>
+					<Header/>
 					<Region/>
 				</Route>
 				<Route path={'/account'}>
-					{ctx.isLoggedIn ? <><Header cartSize={cartContainer.length}/><Account /></> : <Login />}
+					{ctx.isLoggedIn ? <><Header/><Account /></> : <Login />}
 				</Route>
 				<Route path={'/orders'}>
-					{ctx.isLoggedIn ? <><Header cartSize={cartContainer.length}/><Orders/></> :
+					{ctx.isLoggedIn ? <><Header/><Orders/></> :
 					<Redirect to={'/account'}/> }
 				</Route>
 				<Route path={'/cart'}>
-					<Header cartSize={cartContainer.length}/>
+					<Header/>
 					<Cart/>
 				</Route>
 				<Route path={'/*'}>
-					<Header cartSize={cartContainer.length}/>
+					<Header/>
 					<Notfound/>
 				</Route>
 			</Switch>

@@ -1,10 +1,13 @@
+import { useContext } from "react";
+import AuthContext from "../../context/authContext";
 
 
-function Account(props){
+function Account(){
+    const ctx = useContext(AuthContext);
     return(
         <div className="signin">
             <h3>Sign in</h3>
-            <button onClick={props.logout} name={'Logout'}>LogOut</button>
+            <button onClick={ctx.onLogOut} name={'Logout'}>LogOut</button>
         </div>
     );
 }

@@ -3,8 +3,12 @@ import NavButton from './NavButton.js';
 import SearchBar from './SearchBar.js';
 import './Header.css';
 import { faCartShopping, faFlagUsa, faLocationDot, faBars } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import ShoppingContext from "../../context/shoppingContext.js";
 
-function Header(props){
+function Header(){
+
+	const shop = useContext(ShoppingContext);
 
 	return(
 		<header>
@@ -22,7 +26,7 @@ function Header(props){
 					<NavButton link='/region' ico={faFlagUsa} name='EN'/>
 					<NavButton link={'/account'} subt='Hello, sign in' name='Account & Lists'/>
 					<NavButton link={'/orders'} subt='Returns' name='& Orders'/>
-					<NavButton link={'/cart'} ico={faCartShopping} subt={props.cartSize} name='Cart'/>
+					<NavButton link={'/cart'} ico={faCartShopping} subt={shop.basket.length} name='Cart'/>
 				</div>
 			</nav>
 			<nav className="secondary-navbar menusplit">
