@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import './Login.css';
 import {auth} from "../../firebase";
 
-function Login(props){
+function Login(props){	
 	const [emlVar,setEmailvar] = useState("");//repurposed email address
 	const [passVar, changePass] = useState("");//repurposed password
 	const [labelVar,editLabel] = useState("Email or mobile phone number");
@@ -19,7 +19,7 @@ function Login(props){
 		}
 	},[emlVar,passVar]);
 
-	function nextpage(e){
+	function formEventHandler(e){
 		e.preventDefault();
 		if(emlVar.length>0){//going to check if email exists on system then flip labels to take password
 			editLabel("Password");
@@ -56,7 +56,7 @@ function Login(props){
     return(
         <div className="login flex-cntr">
             <Link to={'/home'}><img className="amznlogo" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon"/></Link>
-			<form className="login-container wide" onSubmit={nextpage}>
+			<form className="login-container wide" onSubmit={formEventHandler}>
 				<h2>Sign in</h2>
 				<h4>{labelVar}</h4>
 				<input style={emlDis} className="inpt" type={'email'} value={emlVar} onChange={e => setEmailvar(e.target.value)} name="email"/>

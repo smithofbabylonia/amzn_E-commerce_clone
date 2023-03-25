@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 //import { useEffect } from "react";
 import Category from "./Category";
 import './Home.css';
+import ShoppingContext from "../../context/shoppingContext";
 
 
 function Home(){
@@ -10,6 +11,7 @@ function Home(){
 	var images = [];
 	var imageIndex =0;
 	const homeRef= useRef(null);
+	const shop = useContext(ShoppingContext);
 
 	for (let x = 0; x < imageLinks.length; x++) {
 		var image = new Image();
@@ -41,7 +43,7 @@ function Home(){
 				<Category name="Gaming accessories"/>
 				<Category name="Beauty picks"/>
 				<Category name="Health & Personal Care"/>
-				{false ? <div className="rect"><h1>advert</h1></div> : <Category name="Electronics"/>}
+				{shop.user==null ? <div className="rect"><h1>advert</h1></div> : <Category name="Shop activity trackers and smartwatches"/>}
 				<Category name="Electronics"/>
 				<Category name="Get fit at home"/>
 				<Category name="Shop by Category"/>

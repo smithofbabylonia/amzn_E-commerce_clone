@@ -10,15 +10,15 @@ const ShoppingContext = createContext({
 
 //Shopping reducer*/
 
-export function shoppingReducer(state, action){ // Not entirely sure what it does but will figure as we move # useState might've been a better option
+export function shoppingReducer(state, action){ // I think I understand what it does but I'm still unsure of the how
 	switch (action.type) {
 		case 'ADD_TO_BASKET':
 			return{
-				state, basket: [...state.basket,action.payload]
+				...state, basket: [...state.basket,action.payload]
 			};
 		case 'LOGIN_USER':
 			return{
-				state, user: action.payload,
+				...state, user: action.payload,
 			}
 		default:
 			return state;
