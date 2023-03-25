@@ -24,9 +24,9 @@ function Header(){
 				</div>
 				<div className="menusplit">
 					<NavButton link='/region' ico={faFlagUsa} name='EN'/>
-					<NavButton link={'/account'} subt='Hello, sign in' name='Account & Lists'/>
+					<NavButton link={'/account'} subt={shop.user!=null? 'Hello user':'Hello, sign in'} name='Account & Lists'/>
 					<NavButton link={'/orders'} subt='Returns' name='& Orders'/>
-					<NavButton link={'/cart'} ico={faCartShopping} subt={shop.basket.length} name='Cart'/>
+					<NavButton link={'/cart'} ico={faCartShopping} subt={shop.basket?.length} name='Cart'/>
 				</div>
 			</nav>
 			<nav className="secondary-navbar menusplit">

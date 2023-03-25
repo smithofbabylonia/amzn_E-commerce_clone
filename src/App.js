@@ -11,14 +11,24 @@ import Region from "./components/Region";
 import Notfound from "./components/Notfound";
 import Orders from "./components/Orders";
 import Login from "./components/Account/Login";
-import { useContext } from "react";
-import AuthContext from "./context/authContext";
+import { useContext, useEffect } from "react";
+import ShoppingContext from "./context/shoppingContext";
+import { auth } from "./firebase";
 
 
 function App() {
-	const ctx = useContext(AuthContext);
+	const shop = useContext(ShoppingContext);
 	
-	// in comemoration of a couple of functions and variables that used to live here.
+	useEffect(()=>{ // So we are setting the user variable and giving it autonomy
+		auth.onAuthStateChanged((authUser)=>{
+			console.log("User is ->",authUser);
+			if(authUser){
+				shop.setUser(authUser);
+			}else{
+				shop.setUser(null);
+			}
+		});
+	},[]);
 
 	return (
 		<>
@@ -47,10 +57,10 @@ function App() {
 					<Region/>
 				</Route>
 				<Route path={'/account'}>
-					{ctx.isLoggedIn ? <><Header/><Account /></> : <Login />}
+					{shop.user!=null ? <><Header/><Account /></> : <Login />}
 				</Route>
 				<Route path={'/orders'}>
-					{ctx.isLoggedIn ? <><Header/><Orders/></> :
+					{shop.user!=null ? <><Header/><Orders/></> :
 					<Redirect to={'/account'}/> }
 				</Route>
 				<Route path={'/cart'}>

@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import './Login.css';
-import AuthContext from "../../context/authContext";
+import {auth} from "../../firebase";
 
 function Login(props){
 	const [emlVar,setEmailvar] = useState("");//repurposed email address
@@ -11,7 +11,7 @@ function Login(props){
 	const [passDis,showPass] = useState({'display':'none'});
 	const [emlDis, showEml] = useState({'display':'block'});
 	const [isValid,validate] =useState(false);
-	const ctx =useContext(AuthContext);
+	const history = useHistory();
 
 	useEffect(()=>{
 		if (emlVar.includes('@') && emlVar.includes('@') && passVar.length>6) {
@@ -32,10 +32,25 @@ function Login(props){
 			showPass({'display':'none'});
 			showEml({'display':'block'});
 			changeBtn("Continue");
-			ctx.onLogIn(emlVar,passVar); // The new login place
-			setEmailvar("");
-			changePass("");
+			logUserIn();
 		}
+	}
+	
+	function logUserIn(){
+		//shop.onLogIn(emlVar,passVar); // Sets loggedIn 
+		auth.signInWithEmailAndPassword(emlVar,passVar).then(auth =>{
+			setEmailvar("");
+			changePass('');
+			history.push('/');
+	}).catch((error)=> alert(error.message));
+
+	}
+
+	function setUpUser(e){
+		e.preventDefault();
+		auth.createUserWithEmailAndPassword(emlVar,passVar).then(auth =>{
+			history.push('/');
+		});
 	}
 
     return(
@@ -53,7 +68,7 @@ function Login(props){
 			</form>
 			<div className="switch flex-cntr">
 				<h5>New to Amazon?</h5>
-				<button className=" inpt wider">Create your Amazing account</button>
+				<button className=" inpt wider" onClick={setUpUser}>Create your Amazing account</button>
 			</div>
         </div>
     );

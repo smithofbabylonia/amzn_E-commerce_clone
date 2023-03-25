@@ -14,11 +14,17 @@ export function ShoppingState(props){
 
     async function addToBasket(item){
         dispatch({type: 'ADD_TO_BASKET', payload: item});
-        console.log("Added",state);
+    }
+
+    function logInUser(user){ // login is a {} containing email and password > might get changed
+        dispatch({
+            type: 'LOGIN_USER',
+             payload:user,
+        });
     }
 
     return(
-        <ShoppingContext.Provider value={{basket:state.basket, user:state.user, basketTotal:getBasketTotal, addToBasket:addToBasket}}>{props.children}</ShoppingContext.Provider>
+        <ShoppingContext.Provider value={{basket:state.basket, user:state.user, basketTotal:getBasketTotal, addToBasket:addToBasket, setUser:logInUser}}>{props.children}</ShoppingContext.Provider>
     );
 
 }

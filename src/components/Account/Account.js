@@ -1,13 +1,11 @@
-import { useContext } from "react";
-import AuthContext from "../../context/authContext";
+import { auth } from "../../firebase";
 
 
 function Account(){
-    const ctx = useContext(AuthContext);
     return(
         <div className="signin">
             <h3>Sign in</h3>
-            <button onClick={ctx.onLogOut} name={'Logout'}>LogOut</button>
+            <button onClick={(e)=>{auth.signOut()}} name={'Logout'}>LogOut</button>
         </div>
     );
 }

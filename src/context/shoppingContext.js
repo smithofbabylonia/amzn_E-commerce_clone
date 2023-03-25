@@ -3,8 +3,9 @@ import { createContext } from "react";
 const ShoppingContext = createContext({
 	basket:[],
 	user:null,
+	addToBasket:(item)=>{}, 
 	basketTotal:(basket)=>{},
-	addToBasket:(item)=>{}
+	setUser:(userObject)=>{}, 
 });
 
 //Shopping reducer*/
@@ -14,7 +15,11 @@ export function shoppingReducer(state, action){ // Not entirely sure what it doe
 		case 'ADD_TO_BASKET':
 			return{
 				state, basket: [...state.basket,action.payload]
-			} 
+			};
+		case 'LOGIN_USER':
+			return{
+				state, user: action.payload,
+			}
 		default:
 			return state;
 		}
