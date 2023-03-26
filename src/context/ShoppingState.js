@@ -9,11 +9,14 @@ export function ShoppingState(props){
 
     // Selectors
     function getBasketTotal(basket){
-        basket?.reduce((amount,item)=>item.price + amount,0);
+        return basket?.reduce((amount,item)=>item.price + amount,0);
     }
 
     async function addToBasket(item){
         dispatch({type: 'ADD_TO_BASKET', payload: item});
+    }
+    async function removeFromBasket(item){
+        dispatch({type: 'REMOVE_FROM_BASKET', payload: item});
     }
 
     function logInUser(user){ // login is a {} containing email and password > might get changed
@@ -24,7 +27,7 @@ export function ShoppingState(props){
     }
 
     return(
-        <ShoppingContext.Provider value={{basket:state.basket, user:state.user, basketTotal:getBasketTotal, addToBasket:addToBasket, setUser:logInUser}}>{props.children}</ShoppingContext.Provider>
+        <ShoppingContext.Provider value={{basket:state.basket, user:state.user, basketTotal:getBasketTotal, addToBasket:addToBasket, setUser:logInUser, removeFromBasket:removeFromBasket}}>{props.children}</ShoppingContext.Provider>
     );
 
 }

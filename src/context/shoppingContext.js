@@ -5,6 +5,7 @@ const ShoppingContext = createContext({
 	user:null,
 	addToBasket:(item)=>{}, 
 	basketTotal:(basket)=>{},
+	removeFromBasket:(item)=>{},
 	setUser:(userObject)=>{}, 
 });
 
@@ -19,7 +20,11 @@ export function shoppingReducer(state, action){ // I think I understand what it 
 		case 'LOGIN_USER':
 			return{
 				...state, user: action.payload,
-			}
+			};
+		case 'REMOVE_FROM_BASKET':
+			return{
+				...state, basket: state.basket.filter(item => item.id !==action.payload)
+			};
 		default:
 			return state;
 		}
