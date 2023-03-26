@@ -9,7 +9,11 @@ export function ShoppingState(props){
 
     // Selectors
     function getBasketTotal(basket){
-        return basket?.reduce((amount,item)=>item.price + amount,0);
+        return basket?.reduce((amount,item)=>item.price*item.qnty + amount,0);
+    }
+
+    function getBasketItems(basket){
+        return basket?.reduce((amount,item)=>item.qnty + amount,0);
     }
 
     async function addToBasket(item){
@@ -27,7 +31,7 @@ export function ShoppingState(props){
     }
 
     return(
-        <ShoppingContext.Provider value={{basket:state.basket, user:state.user, basketTotal:getBasketTotal, addToBasket:addToBasket, setUser:logInUser, removeFromBasket:removeFromBasket}}>{props.children}</ShoppingContext.Provider>
+        <ShoppingContext.Provider value={{basket:state.basket, basketItems:getBasketItems, user:state.user, basketTotal:getBasketTotal, addToBasket:addToBasket, setUser:logInUser, removeFromBasket:removeFromBasket}}>{props.children}</ShoppingContext.Provider>
     );
 
 }

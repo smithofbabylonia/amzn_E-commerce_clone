@@ -5,7 +5,7 @@ import ShoppingContext from "../../context/shoppingContext";
 
 function ProductItem(props){
 	const params = useParams();//This is the stuff we pull from the url/link
-	const variables = {id: params.id, rating:4.5, title:"product to buy", price:5.99};
+	const variables = {id: params.id, rating:4.5, title:"product to buy", price:5.99, qnty:1};
 	const shop = useContext(ShoppingContext);
 	return(
 		<div>

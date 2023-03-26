@@ -23,9 +23,11 @@ function Cart(){//{id: params.id, rating:4.5, title:"product to buy", price:5.99
 						<div className="descriptor">
 							<h5>{product.title}</h5>
 							<p>A short description of the product</p>
-							<span>price: ${product.price}</span>
+							<span>price: $ {product.price} ea.</span>
 							<span> </span>
-							<span>rating:{product.rating}</span>
+							<span>quantity: {product.qnty}</span>
+							<span> </span>
+							<span>rating: {product.rating}</span>
 						</div>
 						<div><button onClick={(e) => removeItemHandler(e,product.id)}>Remove from cart</button></div>
 					</div>
