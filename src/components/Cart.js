@@ -14,7 +14,7 @@ function Cart(){//{id: params.id, rating:4.5, title:"product to buy", price:5.99
 		<div className="cart">
 			<h2>Check Out</h2>
 			<div className="cart_products">
-				{shop.basket.length==0 ? <h4>Nothing to see here..</h4>:<h4>Items :</h4>}
+				{shop.basket.length===0 ? <h4>Nothing to see here..</h4>:<h4>Items :</h4>}
 				{shop.basket.map((product)=>{
 					return <div className="item" key={product.id}>
 						<div className="cart_image">
