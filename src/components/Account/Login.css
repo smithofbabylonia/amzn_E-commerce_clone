@@ -76,3 +76,16 @@
     padding: 4px;
     top: -16px;
 }
+
+.flex-begin{
+    display: flex;
+    margin-top: 10px;
+}
+
+.flex-begin *{
+    font-size: 13px !important;
+    margin: 0;
+    height: 16px;
+    padding-left: 5px;
+    width: fit-content;
+}

@@ -41,12 +41,12 @@ function Login(props){
 	useEffect(()=>{ // When password is checked and verified, show password field else show error
 		console.log('use effect is in effect');
 		if (state.isValidEmail) {
-			dispatch({type:'TOGGLE_PWD', payload:{'display':'block'}});
+			dispatch({type:'TOGGLE_PWD', payload:{'display':'inherit'}});
 			dispatch({type:'TOGGLE_EML', payload:{'display':'none'}});
-			dispatch({type:'TOGGLE_BTN', payload:'Login'});
+			dispatch({type:'TOGGLE_BTN', payload:'Sign in'});
 		}else{
 			dispatch({type:'TOGGLE_PWD', payload:{'display':'none'}});
-			dispatch({type:'TOGGLE_EML', payload:{'display':'block'}});
+			dispatch({type:'TOGGLE_EML', payload:{'display':'inherit'}});
 			dispatch({type:'TOGGLE_BTN', payload:'Continue'});
 		}
 		console.log("the effect is affecting");
@@ -58,7 +58,7 @@ function Login(props){
 		if(state.emlVar.includes('@') && state.emlVar.includes('.')){
 			dispatch({type:'VALIDATE', payload:true});
 		}
-		if(state.isValidEmail && state.butnLabel==="Login" && state.passVar.length>6){
+		if(state.isValidEmail && state.butnLabel==="Sign in" && state.passVar.length>6){
 			logUserIn();
 			dispatch({type:'VALIDATE', payload:false});
 		}
@@ -83,16 +83,18 @@ function Login(props){
             <Link to={'/home'}><img className="amznlogo" src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon"/></Link>
 			<form className="login-container wide" onSubmit={formEventHandler}>
 				<h2>Sign in</h2>
+				<span style={state.passDis} className="flex-begin user-email"><p>{state.emlVar}</p><p className="blor">Change</p></span>
 				<h4 style={state.emlDis}>Email or mobile phone number</h4>
 				<input style={state.emlDis} className="inpt" type={'email'} value={state.emlVar} onChange={e => dispatch({type:'SET_EMAIL',payload:e.target.value})} name="email"/>
 				<h4 style={state.passDis}>Password</h4>
 				<input style={state.passDis} className="inpt" type={'password'} value={state.passVar} onChange={e => dispatch({type:'SET_PASSWRD',payload:e.target.value})} name="password"/>
 				<input type="submit" value={state.butnLabel} className="next inpt"/>
 				<br/>
-				<p>By continuing, you agree to totally not the real Amazon's <a className="blor" href="https://www.amazon.com/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&nodeId=508088">Conditions of Use</a> and <a className="blor" href="https://www.amazon.com/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&nodeId=468496">Privacy Notice</a>. </p>
-				<h6>Need help?</h6>
+				<p style={state.emlDis}>By continuing, you agree to totally not the real Amazon's <a className="blor" href="https://www.amazon.com/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&nodeId=508088">Conditions of Use</a> and <a className="blor" href="https://www.amazon.com/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&nodeId=468496">Privacy Notice</a>. </p>
+				<h6 style={state.emlDis}>Need help?</h6>
+				{state.isValidEmail && <span className="flex-begin"><input type="checkbox"/><p>Keep me signed in?</p><p className="blor">Details</p></span>}
 			</form>
-			<div className="switch flex-cntr">
+			<div className="switch flex-cntr" style={state.emlDis}>
 				<h5>New to Amazon?</h5>
 				<button className=" inpt wider" onClick={setUpUser}>Create your Amazing account</button>
 			</div>
