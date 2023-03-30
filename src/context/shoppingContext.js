@@ -6,6 +6,7 @@ const ShoppingContext = createContext({
 	addToBasket:(item)=>{}, 
 	basketTotal:(basket)=>{},
 	basketItems:(basket)=>{},
+	emptyBasket:()=>{},
 	removeFromBasket:(item)=>{},
 	setUser:(userObject)=>{}, 
 });
@@ -30,6 +31,10 @@ export function shoppingReducer(state, action){ // I think I understand what it 
 			return{
 				...state, user: action.payload,
 			};
+		case 'EMPTY_BASKET':
+			return{
+				...state, basket:[]
+			}
 		case 'REMOVE_FROM_BASKET':
 			var k=state.basket.find(j => j.id===action.payload);
 			if(k.qnty>1){

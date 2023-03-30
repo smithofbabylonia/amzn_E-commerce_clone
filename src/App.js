@@ -6,7 +6,7 @@ import Header from "./components/header/Header";
 import ProductItem from "./components/Products/ProductItem";
 import Deliver from "./components/Deliver";
 import Account from "./components/Account/Account";
-import Cart from "./components/Cart";
+import Cart from "./components/cart/Cart";
 import Region from "./components/Region";
 import Notfound from "./components/Notfound";
 import Orders from "./components/Orders";
@@ -28,7 +28,7 @@ function App() {
 				shop.setUser(null);
 			}
 		});
-	},[]);
+	},[]); // Compiler complains about this line but following it messes things up
 
 	return (
 		<>

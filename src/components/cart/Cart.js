@@ -1,13 +1,27 @@
-import { useContext } from "react";
-import ShoppingContext from "../context/shoppingContext";
+import { useContext, useState } from "react";
+import ShoppingContext from "../../context/shoppingContext";
+import Payment from "./Payment";
+import './Cart.css';
+import { useHistory } from "react-router-dom";
 
 function Cart(){//{id: params.id, rating:4.5, title:"product to buy", price:5.99}
 
 	const shop = useContext(ShoppingContext);
+	const [canPay, setPayable] = useState(false);
+	const history = useHistory();
 
 	function removeItemHandler(e,item){
 		console.log('item',item,'was removed from cart!');
 		shop.removeFromBasket(item);
+	}
+
+	function proceedHandler(){
+		if(shop.user!==null){
+			console.log("Ready");
+			setPayable(true);
+		}else{
+			history.push('/account')
+		}
 	}
 
 	return(
@@ -29,13 +43,19 @@ function Cart(){//{id: params.id, rating:4.5, title:"product to buy", price:5.99
 							<span> </span>
 							<span>rating: {product.rating}</span>
 						</div>
-						<div><button onClick={(e) => removeItemHandler(e,product.id)}>Remove from cart</button></div>
+						<div><button onClick={(e) => removeItemHandler(e,product.id)} >Remove from cart</button></div>
 					</div>
 				}) }
 			</div>
-			<div className="check-out">
-				<h3>Total: ${shop.basketTotal(shop.basket)}</h3>
-				<button>Check out</button>
+			<div className="cart-right">
+				<div>
+					<div id="cart-totals">
+						<span>Subtotal ({shop.basketItems(shop.basket)} Items): </span>
+						<span>${shop.basketTotal(shop.basket)}</span>
+					</div>
+					<button onClick={e=> {proceedHandler()}} className="butn">Proceed to Checkout</button>
+				</div>
+				{canPay && <Payment/>}
 			</div>
 		</div>
 	);

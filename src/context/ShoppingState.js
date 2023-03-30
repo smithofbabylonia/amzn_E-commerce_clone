@@ -23,6 +23,10 @@ export function ShoppingState(props){
         dispatch({type: 'REMOVE_FROM_BASKET', payload: item});
     }
 
+    async function clearCart(){
+        dispatch({type:'EMPTY_BASKET'});
+    }
+
     function logInUser(user){ // login is a {} containing email and password > might get changed
         dispatch({
             type: 'LOGIN_USER',
@@ -31,7 +35,7 @@ export function ShoppingState(props){
     }
 
     return(
-        <ShoppingContext.Provider value={{basket:state.basket, basketItems:getBasketItems, user:state.user, basketTotal:getBasketTotal, addToBasket:addToBasket, setUser:logInUser, removeFromBasket:removeFromBasket}}>{props.children}</ShoppingContext.Provider>
+        <ShoppingContext.Provider value={{basket:state.basket, basketItems:getBasketItems, user:state.user, basketTotal:getBasketTotal, addToBasket:addToBasket, emptyBasket:clearCart, setUser:logInUser, removeFromBasket:removeFromBasket}}>{props.children}</ShoppingContext.Provider>
     );
 
 }

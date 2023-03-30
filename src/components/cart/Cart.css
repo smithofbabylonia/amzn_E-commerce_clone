@@ -1,0 +1,54 @@
+
+.cart{
+    width: 97%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+.cart h2{
+    width: 100%;
+}
+
+.cart_products{
+    width: 75%;
+    background-color: #fff;
+}
+
+.cart-right{
+    width: 20%;
+    float: right;
+}
+
+.cart-right > div{
+    background-color: #fff;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.cart-right + div{
+    height: 100px;
+}
+
+.butn{
+    border-radius: 5px;
+    background: #ffd814;
+    height: 30px;
+    box-shadow: 2px 1px 2px #505050;
+}
+
+.butn:hover{
+    background: #f0b800;
+}
+
+#cart-totals{
+    font-size: 18px;
+    line-height: 24px;
+}
+
+#cart-totals span:nth-child(2){/* Never thought i would use this*/  
+    font-weight: 700;
+}
