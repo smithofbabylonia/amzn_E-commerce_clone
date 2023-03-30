@@ -1,6 +1,7 @@
 
 .cart{
     width: 97%;
+    margin: 1%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -14,6 +15,7 @@
 .cart_products{
     width: 75%;
     background-color: #fff;
+    padding: 15px;
 }
 
 .cart-right{
@@ -51,4 +53,40 @@
 
 #cart-totals span:nth-child(2){/* Never thought i would use this*/  
     font-weight: 700;
+}
+
+.cart-item{
+    border-bottom: solid 1px #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.cart-item h4{
+    height: 40px;
+    padding: 5px;
+    font-size: 28px;
+    line-height: 30px;
+}
+
+.cart-item h5{
+    font-size: 18px;
+    line-height: 23.4px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.cart-item h6{
+    height: 180px;
+    font-size: 22px;
+}
+
+.layer-one{
+    display: flex;
+    height: 200px;
+}
+
+.layer-one img{
+    height: 98%;
+    width: 200px;
 }

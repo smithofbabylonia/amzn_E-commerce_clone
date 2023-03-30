@@ -66,7 +66,7 @@ function Login(props){
 	
 	function logUserIn(){ //
 		auth.signInWithEmailAndPassword(state.emlVar, state.passVar).then(auth =>{
-			history.push('/');
+			history.goBack();
 	}).catch((error)=> alert(error.message));
 
 	}
@@ -74,7 +74,7 @@ function Login(props){
 	function setUpUser(e){
 		e.preventDefault();
 		auth.createUserWithEmailAndPassword(state.emlVar, state.passVar).then(auth =>{
-			history.push('/');
+			history.goBack();
 		});
 	}
 
