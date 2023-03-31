@@ -35,16 +35,20 @@ function Cart(){//{id: params.id, rating:4.5, title:"product to buy", price:5.99
 							<div>
 								<h5>{product.title}</h5>
 								<p>In stock</p>
-								<span> </span>
-								<span>quantity: {product.qnty}</span>
-								<span> </span>
-								<span>rating: {product.rating}</span>
-								<button onClick={(e) => removeItemHandler(e,product.id)} >Remove from cart</button>
+								<span className="boxed">Qty: {product.qnty}</span>
+								<span> | </span>
+								<span className="blor" onClick={(e) => removeItemHandler(e,product.id)} >Remove from cart</span>
+								<span> | </span>
+								<span className="blor">rating: {product.rating}</span>
 							</div>
 						</div>
 						<span><h6>${product.price}</h6></span>
 					</div>
 				}) }
+				<div id="cart-totals">
+						<span>Subtotal ({shop.basketItems(shop.basket)} Items): </span>
+						<span>${shop.basketTotal(shop.basket)}</span>
+					</div>
 			</div>
 			<div className="cart-right">
 				<div>

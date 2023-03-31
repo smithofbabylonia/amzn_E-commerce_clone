@@ -1,92 +1,115 @@
 
 .cart{
-    width: 97%;
-    margin: 1%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+	width: 97%;
+	margin: 1%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 
 .cart h2{
-    width: 100%;
+	width: 100%;
 }
 
 .cart_products{
-    width: 75%;
-    background-color: #fff;
-    padding: 15px;
+	width: 75%;
+	background-color: #fff;
+	padding: 15px;
+}
+
+.cart_products #cart-totals{
+	display: flex;
+	justify-content: flex-end;
+	padding: 5px;
 }
 
 .cart-right{
-    width: 20%;
-    float: right;
+	width: 20%;
+	float: right;
 }
 
 .cart-right > div{
-    background-color: #fff;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+	background-color: #fff;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
 }
 
 .cart-right + div{
-    height: 100px;
+	height: 100px;
 }
 
 .butn{
-    border-radius: 5px;
-    background: #ffd814;
-    height: 30px;
-    box-shadow: 2px 1px 2px #505050;
+	border-radius: 5px;
+	background: #ffd814;
+	height: 30px;
+	box-shadow: 2px 1px 2px #505050;
 }
 
 .butn:hover{
-    background: #f0b800;
+	background: #f0b800;
 }
 
 #cart-totals{
-    font-size: 18px;
-    line-height: 24px;
+	font-size: 18px;
+	line-height: 24px;
 }
 
 #cart-totals span:nth-child(2){/* Never thought i would use this*/  
-    font-weight: 700;
+	font-weight: 700;
 }
 
 .cart-item{
-    border-bottom: solid 1px #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+	border-bottom: solid 1px #ddd;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
 }
 
 .cart-item h4{
-    height: 40px;
-    padding: 5px;
-    font-size: 28px;
-    line-height: 30px;
+	height: 40px;
+	padding: 5px;
+	font-size: 28px;
+	line-height: 30px;
 }
 
 .cart-item h5{
-    font-size: 18px;
-    line-height: 23.4px;
-    text-align: left;
-    font-weight: 500;
+	font-size: 18px;
+	line-height: 23.4px;
+	text-align: left;
+	font-weight: 500;
 }
 
 .cart-item h6{
-    height: 180px;
-    font-size: 22px;
+	height: 180px;
+	font-size: 20px;
 }
 
 .layer-one{
-    display: flex;
-    height: 200px;
+	display: flex;
+	height: 200px;
 }
 
 .layer-one img{
-    height: 98%;
-    width: 200px;
+	height: 98%;
+	width: 200px;
+}
+
+.layer-one p{
+	font-size: 12px;
+	color: green;
+	padding: 8px;
+}
+
+.layer-one span{
+	font-size: 13px;
+}
+
+.boxed{
+	border: solid 1px #ddd;
+	border-radius: 5px;
+	padding: 5px;
+	background: #f3f3f3;
 }
